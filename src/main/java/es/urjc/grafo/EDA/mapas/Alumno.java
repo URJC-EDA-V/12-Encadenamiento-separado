@@ -54,7 +54,7 @@ public class Alumno {
             hash += (int) (aByte * Math.pow(a, cont));
             cont++;
         }
-        hash = dni + hash * a;
+        hash = (int) (dni + hash * Math.pow(a, cont));
 
         return hash;
 

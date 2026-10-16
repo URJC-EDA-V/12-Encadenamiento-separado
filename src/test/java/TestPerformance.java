@@ -2,16 +2,14 @@ import es.urjc.grafo.EDA.mapas.Mapa;
 import es.urjc.grafo.EDA.mapas.MapaEncadenamientoSeparado;
 import es.urjc.grafo.EDA.mapas.SimpleMapa;
 import es.urjc.grafo.EDA.mapas.UnsortedArrayMap;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.*;
-import java.util.Map.Entry;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class TestPerformance {
 

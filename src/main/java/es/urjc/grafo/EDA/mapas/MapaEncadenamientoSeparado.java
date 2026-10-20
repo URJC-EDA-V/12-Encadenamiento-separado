@@ -86,6 +86,13 @@ public class MapaEncadenamientoSeparado<K, V> extends AbstractMapa<K, V> {
 
     /**
      * Put a key-value pair in the map, replacing previous one if it exists.
+     * Es importante actualizar el tamaño del mapa en consecuencia y, cuando sea necesario,
+     * redimensionar el array. Como estamos utilizando encadenamiento separado, se
+     * recomienda mantener un factor de carga menor a 0,75. Es decir, cuando el número de
+     * elementos es igual al 75% del tamaño del array, hay que redimensionar llamando
+     * al método rehash. La nueva capacidad tiene que ser mayor que la anterior.
+     * Una buena aproximación es duplicar el tamaño del array cada vez que se supere el factor
+     * de carga de 0,75.
      *
      * @param key
      * @param value
@@ -150,6 +157,10 @@ public class MapaEncadenamientoSeparado<K, V> extends AbstractMapa<K, V> {
 
     /**
      * Increase/reduce the size of the hash table and rehashes all the entries.
+     * Este método debe ser llamado desde put, cuando el factor de carga sea mayor que 0,75.
+     * Es decir, cuando el ratio (número de elementos / tamaño del array) sea mayor que 0,75,
+     * es necesario redimensionar el array. Para ello, duplicamos el tamaño del mismo y
+     * rehasheamos todas las entradas.
      *
      * @param desiredCapacity
      */
